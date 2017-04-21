@@ -1,0 +1,17 @@
+#!/bin/sh
+
+. $HOME/develop/scripts/scr.conf
+
+if [ $# -eq 0 ]
+then
+    echo "no title"
+    exit 1
+fi
+
+DOC_TITLE=$1
+mkdir $DOC_TITLE
+cp $RTEMP_PATH/*.sty $DOC_TITLE/
+touch $DOC_TITLE/$DOC_TITLE.tex
+cat $RTEMP_PATH/template.tex > $DOC_TITLE/$DOC_TITLE.tex
+
+echo "完了"
